@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Freckle+Face&display=swap');
 
-.sala-jugar-bg {
+.sj-bg {
   background-size: cover;
   background-position: center;
   min-height: 100vh;
@@ -13,26 +13,27 @@
   font-family: 'Luckiest Guy', cursive;
 }
 
-.contenido {
+.sj-contenido {
   text-align: center;
   margin-top: 10vh;
   z-index: 2;
+  padding: 0 1rem;
 }
 
-.mensaje-actuar {
-  font-size: 3rem;
+.sj-mensaje-actuar {
+  font-size: clamp(2rem, 6vw, 3rem);
   text-shadow: 2px 2px 5px black;
 }
 
-.instruccion-juego {
-  font-size: 1.5rem;
+.sj-instruccion {
+  font-size: clamp(1rem, 4vw, 1.5rem);
   margin-top: 1rem;
   text-shadow: 1px 1px 3px black;
 }
 
-.btn-iniciar-turno {
+.sj-btn-iniciar {
   margin-top: 2rem;
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
   padding: 1rem 2rem;
   border: none;
   border-radius: 15px;
@@ -43,29 +44,34 @@
   box-shadow: 2px 2px 5px #000;
 }
 
-.nombre-jugador {
+.sj-btn-iniciar:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* nombre del jugador */
+.sj-nombre-jugador {
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
   font-family: 'Freckle Face', cursive;
-  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-size: clamp(1.2rem, 4vw, 3rem);
   color: white;
   text-shadow: 2px 2px 4px black;
   z-index: 1000;
-
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: right;
-  max-width: 40vw;
+  max-width: 80vw;
 }
 
-/* NUEVO: categoría arriba izquierda */
-.categoria {
+/* categoría arriba izquierda */
+.sj-categoria {
   position: absolute;
   top: 1rem;
   left: 2rem;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 4vw, 1.5rem);
   font-weight: bold;
   text-transform: uppercase;
   color: #fff700;
@@ -73,41 +79,42 @@
   z-index: 2;
 }
 
-/* NUEVO: puntajes arriba derecha */
-.puntajes-equipos {
+/* puntajes arriba derecha */
+.sj-puntajes {
   position: absolute;
   top: 1rem;
   right: 2rem;
   text-align: right;
-  font-size: 1.2rem;
-  font-family: 'Luckiest Guy', cursive; /* 👈 Fuerza la fuente caricaturesca */
+  font-size: clamp(1rem, 3vw, 2.5rem);
+  font-family: 'Luckiest Guy', cursive;
   color: white;
   z-index: 2;
 }
 
-.puntajes-equipos .equipo {
+.sj-puntajes .sj-equipo {
   margin-bottom: 0.2rem;
   text-shadow: 2px 2px 3px black;
 }
-.codigo-sala-luckiest {
+
+/* código de sala */
+.sj-codigo {
   position: absolute;
   top: 2vh;
   left: 50%;
   transform: translateX(-50%);
   font-family: 'Luckiest Guy', cursive;
   font-size: clamp(2rem, 5vw, 4rem);
-  color: #facc15; /* amarillo tipo Kahoot */
+  color: #facc15;
   text-shadow: 3px 3px 6px #000;
   z-index: 1000;
   padding: 0.5rem 1rem;
   pointer-events: none;
-  animation: rebotar 1s infinite;
-  background: rgba(0, 0, 0, 0.4); /* fondo negro semi-transparente */
+  animation: sj-rebotar 1s infinite;
+  background: rgba(0, 0, 0, 0.4);
   border-radius: 12px;
-
 }
 
-@keyframes rebotar {
+@keyframes sj-rebotar {
   0%, 100% {
     transform: translateX(-50%) translateY(0);
   }

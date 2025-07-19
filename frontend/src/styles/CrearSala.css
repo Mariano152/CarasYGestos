@@ -1,54 +1,94 @@
 /* src/styles/CrearSala.css */
 
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Fredoka&display=swap');
+
 body, html {
   margin: 0;
   padding: 0;
   font-family: 'Fredoka', sans-serif;
 }
 
-.title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #facc15;
-  animation: bounce 1s infinite;
-  text-align: center;
-  text-shadow: 2px 2px #000;
-  font-family: 'Luckiest Guy', cursive;
+/* Fondo */
+.crear-sala-bg {
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.form-container {
+/* Título animado */
+.crear-title {
+  position: absolute;
+  top: 8%;
+  left: 50%; /* mueve hacia la derecha */
+  transform: translateX(-50%);
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-family: 'Luckiest Guy', cursive;
+  font-weight: bold;
+  color: #facc15;
+  text-shadow: 2px 2px #000;
+  animation: bounce 1s infinite;
+  text-align: center;
+  z-index: 10;
+}
+
+
+/* Contenedor del formulario */
+.crear-form-container {
   background-color: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   border: 3px dashed #38bdf8;
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 2rem;
-  animation: fadein 0.8s ease-out;
   box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  animation: fadein 0.8s ease-out;
 }
 
-.input {
+/* Etiquetas */
+.crear-label {
+  color: #000;
+  font-weight: bold;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  margin-top: 1rem;
+  display: block;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+/* Inputs */
+.crear-input {
   width: 100%;
   padding: 0.75rem 1rem;
   border-radius: 1rem;
   border: none;
+  font-size: clamp(1rem, 3vw, 1.2rem);
   color: black;
-  font-size: 1rem;
+  margin-top: 0.5rem;
   margin-bottom: 1rem;
+  box-sizing: border-box;
 }
 
-.btn {
+/* Botón */
+.crear-btn {
   width: 100%;
   padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 1rem;
+  font-size: clamp(1rem, 3vw, 1.2rem);
   font-weight: bold;
   background-color: #4ade80;
   color: black;
-  border-radius: 1rem;
-  transition: 0.3s;
   cursor: pointer;
-  border: none;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
-.btn:hover {
+.crear-btn:hover {
   background-color: #22c55e;
   transform: scale(1.05);
 }
@@ -62,17 +102,4 @@ body, html {
 @keyframes fadein {
   from { opacity: 0; transform: scale(0.95); }
   to   { opacity: 1; transform: scale(1); }
-}
-
-@keyframes zoom {
-  from { background-size: 100%; }
-  to   { background-size: 110%; }
-}
-.label {
-  color: #000000; /* negro fuerte */
-  font-weight: bold;
-  font-size: 1rem;
-  margin-top: 1rem;
-  display: block;
-  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6); /* opcional para que resalte sobre fondos brillantes */
 }

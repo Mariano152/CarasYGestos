@@ -6,7 +6,7 @@ body, html {
   font-family: 'Fredoka', sans-serif;
 }
 
-.unirse-sala-bg {
+.us-bg {
   min-height: 100vh;
   background-image: url('../assets/UnirseSala.jpg');
   background-size: cover;
@@ -15,40 +15,56 @@ body, html {
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: zoom 20s ease-in-out infinite alternate;
+  padding: 1rem;
+  animation: us-zoom 20s ease-in-out infinite alternate;
 }
 
-.title {
-  font-size: 2.5rem;
+/* Título */
+
+.us-title {
+  position: absolute;
+  top: -50%; /* ⬅️ ajústalo: 40% es más abajo, 20% es más arriba */
+  left:10%;
+  transform: translateX(-50%);
+  font-size: clamp(2rem, 6vw, 3rem);
   font-weight: bold;
   color: #facc15;
-  animation: bounce 1s infinite;
+  animation: us-bounce 1s infinite;
   text-align: center;
   text-shadow: 2px 2px #000;
   font-family: 'Luckiest Guy', cursive;
+  z-index: 10;
 }
 
-.form-container {
+
+
+/* Formulario */
+.us-form-container {
+  width: 100%;
+  max-width: 400px;
   background-color: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   border: 3px dashed #38bdf8;
-  padding: 2rem;
+  padding: 2rem 1.5rem;
   border-radius: 2rem;
-  animation: fadein 0.8s ease-out;
+  animation: us-fadein 0.8s ease-out;
   box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
 }
 
-.input {
+/* Inputs */
+.us-input {
   width: 100%;
   padding: 0.75rem 1rem;
   border-radius: 1rem;
   border: none;
   color: black;
-  font-size: 1rem;
+  font-size: clamp(1rem, 4vw, 1.2rem);
   margin-bottom: 1rem;
+  box-sizing: border-box;
 }
 
-.btn {
+/* Botón */
+.us-btn {
   width: 100%;
   padding: 0.75rem 1rem;
   font-weight: bold;
@@ -58,24 +74,26 @@ body, html {
   transition: 0.3s;
   cursor: pointer;
   border: none;
+  font-size: clamp(1rem, 4vw, 1.2rem);
 }
 
-.btn:hover {
+.us-btn:hover {
   background-color: #22c55e;
   transform: scale(1.05);
 }
 
-@keyframes bounce {
+/* Animaciones */
+@keyframes us-bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-5px); }
 }
 
-@keyframes fadein {
+@keyframes us-fadein {
   from { opacity: 0; transform: scale(0.95); }
   to   { opacity: 1; transform: scale(1); }
 }
 
-@keyframes zoom {
+@keyframes us-zoom {
   from { background-size: 100%; }
   to   { background-size: 110%; }
 }

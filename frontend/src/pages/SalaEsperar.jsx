@@ -50,32 +50,33 @@ const SalaEsperar = () => {
   if (!sala) return <div className="sala-esperar-bg" style={{ backgroundImage: `url(${fondo})` }}><h2 className="loading">Cargando...</h2></div>;
 
   return (
-    <div className="sala-esperar-bg" style={{ backgroundImage: `url(${fondo})` }}>
-      <div className="contenido">
-        <h1 className="mensaje-esperar">{jugadorActuando} está actuando</h1>
-        <p className="instruccion-esperar">Espera tu turno...</p>
-        {tiempoRestante !== null && (
-          <div className="temporizador">{tiempoRestante}s</div>
-        )}
-      </div>
+<div className="se-esp-bg" style={{ backgroundImage: `url(${fondo})` }}>
+  <div className="se-esp-contenido">
+    <h1 className="se-esp-mensaje">{jugadorActuando} está actuando</h1>
+    <p className="se-esp-instruccion">Espera tu turno...</p>
+    {tiempoRestante !== null && (
+      <div className="se-esp-temporizador">{tiempoRestante}s</div>
+    )}
+  </div>
 
-      <div className="categoria">Categoría: {sala.categoria}</div>
+  <div className="se-esp-categoria">Categoría: {sala.categoria}</div>
 
-      <div className="puntajes-equipos">
-        {sala.equipos &&
-          Object.entries(sala.equipos).map(([equipo, jugadores]) => {
-            const puntos = (sala.puntajes?.[equipo] || 0);
-            return (
-              <div key={equipo} className="equipo">
-                <strong>{equipo}</strong>: {puntos} puntos
-              </div>
-            );
-          })}
-      </div>
+  <div className="se-esp-puntajes">
+    {sala.equipos &&
+      Object.entries(sala.equipos).map(([equipo, jugadores]) => {
+        const puntos = sala.puntajes?.[equipo] || 0;
+        return (
+          <div key={equipo} className="se-esp-equipo">
+            <strong>{equipo}</strong>: {puntos} puntos
+          </div>
+        );
+      })}
+  </div>
 
-      <div className="nombre-jugador">{nombreJugador}</div>
-      <div className="codigo-sala-luckiest">{salaId}</div>
-    </div>
+  <div className="se-esp-nombre-jugador">{nombreJugador}</div>
+  <div className="se-esp-codigo">{salaId}</div>
+</div>
+
   );
 };
 

@@ -101,34 +101,39 @@ const SalaJugar = () => {
   }
 
   return (
-    <div className="sala-jugar-bg" style={{ backgroundImage: `url(${fondo})` }}>
-      <div className="contenido">
-        <h1 className="mensaje-actuar">
-          Le toca a <strong>{sala.jugadorActuando}</strong> actuar
-        </h1>
-        <p className="instruccion-juego">
-          Tienen {sala.tiempoPorRonda} segundos para adivinar tantas <strong>{sala.categoria}</strong> como puedan
-        </p>
-        {esTurnoMio && (
-          <button className="btn-iniciar-turno" onClick={iniciarTurno} disabled={botonBloqueado}>
-            Iniciar turno
-          </button>
-        )}
+<div className="sj-bg" style={{ backgroundImage: `url(${fondo})` }}>
+  <div className="sj-contenido">
+    <h1 className="sj-mensaje-actuar">
+      Le toca a <strong>{sala.jugadorActuando}</strong> actuar
+    </h1>
+    <p className="sj-instruccion">
+      Tienen {sala.tiempoPorRonda} segundos para adivinar tantas <strong>{sala.categoria}</strong> como puedan
+    </p>
+    {esTurnoMio && (
+      <button
+        className="sj-btn-iniciar"
+        onClick={iniciarTurno}
+        disabled={botonBloqueado}
+      >
+        Iniciar turno
+      </button>
+    )}
+  </div>
+
+  <div className="sj-categoria">Categoría: {sala.categoria}</div>
+
+  <div className="sj-puntajes">
+    {Object.entries(sala.puntajes || {}).map(([equipo, puntos]) => (
+      <div key={equipo} className="sj-equipo">
+        <strong>{equipo}</strong>: {puntos} puntos
       </div>
+    ))}
+  </div>
 
-      <div className="categoria">Categoría: {sala.categoria}</div>
+  <div className="sj-nombre-jugador">{nombreJugador}</div>
+  <div className="sj-codigo">{salaId}</div>
+</div>
 
-      <div className="puntajes-equipos">
-        {Object.entries(sala.puntajes || {}).map(([equipo, puntos]) => (
-          <div key={equipo} className="equipo">
-            <strong>{equipo}</strong>: {puntos} puntos
-          </div>
-        ))}
-      </div>
-
-      <div className="nombre-jugador">{nombreJugador}</div>
-      <div className="codigo-sala-luckiest">{salaId}</div>
-    </div>
   );
 };
 

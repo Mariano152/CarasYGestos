@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Freckle+Face&display=swap');
 
-.sala-escribir-bg {
+.se-bg {
   background-size: cover;
   background-position: center;
   min-height: 100vh;
@@ -10,89 +10,89 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  z-index: 0; /* asegura que lo de adentro pueda tener z-index superior */
+  z-index: 0;
 }
 
-.contenido {
+/* Contenido centrado */
+.se-contenido {
   text-align: center;
   color: white;
+  width: 100%;
+  max-width: 600px;
 }
 
-.instruccion {
+/* Título amarillo caricaturesco */
+.se-instruccion {
   font-family: 'Luckiest Guy', cursive;
-  font-size: 3rem;
+  font-size: clamp(2rem, 6vw, 3rem);
   margin-bottom: 2rem;
   text-shadow: 2px 2px 4px #000;
+  color: #facc15;
 }
 
-.input-container {
+/* Contenedor de input + botón */
+.se-input-container {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
+  align-items: center;
 }
 
-.input-palabra {
+/* Input */
+.se-input-palabra {
   padding: 1rem;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 4vw, 1.5rem);
   border-radius: 10px;
   border: none;
-  width: 300px;
+  width: min(90vw, 300px);
+  box-sizing: border-box;
 }
 
-.btn-enviar {
+/* Botón enviar */
+.se-btn-enviar {
   background-color: #33d9b2;
   color: white;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 4vw, 1.5rem);
   padding: 1rem 2rem;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
   transition: transform 0.2s;
+  white-space: nowrap;
 }
 
-.btn-enviar:hover {
+.se-btn-enviar:hover {
   transform: scale(1.05);
 }
 
-.nombre-jugador {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  font-family: 'Freckle Face', cursive;
-  font-size: clamp(1.5rem, 4vw, 3rem);
-  color: white;
-  text-shadow: 2px 2px 4px black;
-  z-index: 1000;
-
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: right;
-  max-width: 40vw;
-}
-
-.contenedor-boton-iniciar {
+/* Botón iniciar ronda */
+.se-iniciar-container {
   margin-top: 2rem;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
-.iniciar-btn {
+.se-iniciar-btn {
   background-color: #ffcc00;
   color: black;
   padding: 1rem 2rem;
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 4vw, 1.5rem);
   border-radius: 12px;
   border: none;
   cursor: pointer;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
 }
 
-.iniciar-btn:hover {
+.se-iniciar-btn:hover {
   background-color: #ffdb4d;
 }
-.codigo-sala-luckiest {
+
+/* Código de sala */
+.se-codigo {
   position: absolute;
   top: 2vh;
   left: 50%;
@@ -106,4 +106,21 @@
   padding: 0.5rem 1rem;
   border-radius: 12px;
   pointer-events: none;
+}
+
+/* Nombre del jugador */
+.se-nombre-jugador {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  font-family: 'Freckle Face', cursive;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  color: white;
+  text-shadow: 2px 2px 4px black;
+  z-index: 1000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: right;
+  max-width: 80vw;
 }

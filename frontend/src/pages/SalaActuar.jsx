@@ -150,24 +150,25 @@ const SalaActuar = () => {
     );
   }
 
-  return (
-    <div className="sala-actuar-bg" style={{ backgroundImage: `url(${fondo})` }}>
-      <div className="categoria">Categoría: {categoria}</div>
-      <div className="temporizador">{tiempoRestante}s</div>
+ return (
+  <div className="sala-actuar-bg" style={{ backgroundImage: `url(${fondo})` }}>
+    <div className="sa-categoria">Categoría: {categoria}</div>
+    <div className="sa-temporizador">{tiempoRestante}s</div>
 
-      <div className="puntajes-equipos">
-        {Object.entries(puntajes).map(([equipo, puntos]) => (
-          <div key={equipo} className="equipo">
-            <strong>{equipo}</strong>: {puntos} puntos
-          </div>
-        ))}
-      </div>
-
-      <div className="palabra-a-actuar">{palabraActual}</div>
-      <div className="nombre-jugador">{nombreJugador}</div>
-      <div className="codigo-sala-luckiest">{codigoSala}</div>
+    <div className="sa-puntajes">
+      {Object.entries(puntajes).map(([equipo, puntos]) => (
+        <div key={equipo} className="sa-equipo">
+          <strong>{equipo}</strong>: {puntos} puntos
+        </div>
+      ))}
     </div>
-  );
+
+    <div className="sa-palabra">{palabraActual}</div>
+    <div className="sa-jugador">{nombreJugador}</div>
+    <div className="sa-codigo">{codigoSala}</div>
+  </div>
+);
+
 };
 
 export default SalaActuar;

@@ -118,25 +118,27 @@ const CrearSala = () => {
         padding: "1rem",
       }}
     >
-      <h1 className="title">Crear sala</h1>
-      <div className="form-container w-full max-w-md space-y-4">
-        <label className="label">Nombre del jugador:</label>
-        <input className="input" value={nombre} onChange={(e) => setNombre(e.target.value)} placeholder="Tu nombre" />
+      <h1 className="crear-title">Crear sala</h1>
 
-        <label className="label">Temática o categoría:</label>
-        <input className="input" value={categoria} onChange={(e) => setCategoria(e.target.value)} placeholder="Ej. Películas" />
+      <div className="crear-form-container">
+        <label className="crear-label">Nombre del jugador:</label>
+        <input className="crear-input" value={nombre} onChange={(e) => setNombre(e.target.value)} placeholder="Tu nombre" />
 
-        <label className="label">¿Cuántas respuestas por persona?</label>
-        <input className="input" type="number" value={respuestasPorPersona} onChange={(e) => setRespuestasPorPersona(+e.target.value)} />
+        <label className="crear-label">Temática o categoría:</label>
+        <input className="crear-input" value={categoria} onChange={(e) => setCategoria(e.target.value)} placeholder="Ej. Películas" />
 
-        <label className="label">Tiempo por ronda (en segundos):</label>
-        <input className="input" type="number" value={tiempoPorRonda} onChange={(e) => setTiempoPorRonda(+e.target.value)} />
+        <label className="crear-label">¿Cuántas respuestas por persona?</label>
+        <input className="crear-input" type="number" value={respuestasPorPersona} onChange={(e) => setRespuestasPorPersona(+e.target.value)} />
 
-        <label className="label">Número de equipos:</label>
-        <input className="input" type="number" value={numEquipos} onChange={(e) => setNumEquipos(+e.target.value)} />
+        <label className="crear-label">Tiempo por ronda (en segundos):</label>
+        <input className="crear-input" type="number" value={tiempoPorRonda} onChange={(e) => setTiempoPorRonda(+e.target.value)} />
 
-        <button onClick={crearSala} className="btn">Crear sala</button>
+        <label className="crear-label">Número de equipos:</label>
+        <input className="crear-input" type="number" value={numEquipos} onChange={(e) => setNumEquipos(+e.target.value)} />
+
+        <button onClick={crearSala} className="crear-btn">Crear sala</button>
       </div>
+
     </div>
   );
 };

@@ -1,86 +1,98 @@
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Freckle+Face&display=swap');
 
-.sala-jugar-bg {
+.sa2-bg {
   background-image: url("../assets/SalaJugar.jpg");
   background-size: cover;
   background-position: center;
   min-height: 100vh;
-  padding: 2rem;
+  padding: 2rem 1rem;
   position: relative;
-  color: white;
-  font-family: 'Luckiest Guy', cursive;
-}
-
-.categoria {
-  font-size: 2rem;
-  color: yellow;
-  text-shadow: 2px 2px 4px #000;
-  margin-bottom: 1rem;
-}
-
-.temporizador {
-  font-size: 5rem;
-  color: yellow;
-  text-shadow: 2px 2px 4px #000;
-  margin-bottom: 2rem;
-}
-
-.input-container {
   display: flex;
-  gap: 1rem;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+  color: white;
+  text-align: center;
 }
 
-.input-adivinar {
+.sa2-categoria {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-family: 'Luckiest Guy', cursive;
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  color: #facc15;
+  text-shadow: 2px 2px 5px black;
+}
+
+
+
+
+
+
+.sa2-input {
   padding: 1rem;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 4vw, 1.5rem);
   border-radius: 1rem;
   border: none;
-  width: 300px;
+  width: min(90vw, 300px);
+  box-sizing: border-box;
 }
 
-.btn-adivinar {
+.sa2-btn {
   padding: 1rem 2rem;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 4vw, 1.5rem);
   border-radius: 1rem;
   border: none;
-  background-color: yellow;
+  background-color: #4ade80;
   color: black;
   font-weight: bold;
   cursor: pointer;
   box-shadow: 2px 2px 4px #000;
+  white-space: nowrap;
+  transition: background-color 0.3s;
 }
 
-.nombre-jugador {
-  position: fixed;
-  bottom: 1rem;
-  right: 2rem;
-  font-size: 2rem;
-  color: white;
-  text-shadow: 2px 2px 4px #000;
-}
-.puntajes-equipos {
-  margin: 1rem 0;
-  font-size: 1.2rem;
-  color: white;
-  font-weight: bold;
-  text-shadow: 1px 1px 2px black;
-  text-align: center;
+.sa2-btn:hover {
+  background-color: #22c55e;
 }
 
-.equipo {
-  margin: 0.3rem 0;
-}
-.resultado {
-  font-size: 2.5rem;
+.sa2-resultado {
+  position: absolute;
+  top: 65%; /* ajusta según altura deseada */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(1.5rem, 6vw, 2.5rem);
   font-weight: bold;
-  margin-top: 1rem;
   color: white;
   text-shadow: 2px 2px 6px #000;
-  text-align: center;
+  z-index: 2;
 }
-.codigo-sala-luckiest {
+
+
+.sa2-jugador {
+  position: fixed;
+  bottom: 2vh;
+  right: 2vw;
+  font-size: clamp(1.2rem, 4vw, 3rem);
+  font-family: 'Freckle Face', cursive;
+  color: white;
+  text-shadow: 2px 2px 4px #000;
+  max-width: 80vw;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  z-index: 1000;
+}
+
+
+
+.sa2-equipo {
+  margin: 0.3rem 0;
+}
+
+.sa2-codigo {
   position: absolute;
   top: 2vh;
   left: 50%;
@@ -94,4 +106,37 @@
   padding: 0.5rem 1rem;
   border-radius: 12px;
   pointer-events: none;
+}
+.sa2-temporizador {
+  position: absolute;
+  top: 40%; /* mueve verticalmente */
+  right: 50%; /* centra aproximadamente */
+  transform: translateX(50%);
+  font-family: 'Luckiest Guy', cursive;
+  font-size: clamp(2.5rem, 10vw, 5rem);
+  color: #facc15;
+  text-shadow: 3px 3px 6px #000;
+  margin-bottom: 1rem;
+}
+.sa2-puntajes {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  text-align: right;
+  font-size: clamp(1rem, 3vw, 2.5rem);
+  font-family: 'Luckiest Guy', cursive;
+  color: white;
+  z-index: 2;
+}
+.sa2-input-container {
+  position: absolute;
+  top: 52%; /* Debajo del temporizador */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
 }

@@ -95,40 +95,42 @@ const SalaEscribir = () => {
   }
 
   return (
-    <div className="sala-escribir-bg" style={{ backgroundImage: `url(${fondo})` }}>
-      <div className="contenido">
-        <h1 className="instruccion">
-          Escribe {respuestasRestantes} {sala.categoria}
-        </h1>
+    <div className="se-bg" style={{ backgroundImage: `url(${fondo})` }}>
+  <div className="se-contenido">
+    <h1 className="se-instruccion">
+      Escribe {respuestasRestantes} {sala.categoria}
+    </h1>
 
-        {!yaTermine && (
-          <div className="input-container">
-            <input
-              type="text"
-              value={palabra}
-              onChange={(e) => setPalabra(e.target.value)}
-              className="input-palabra"
-              placeholder="Escribe tu palabra aquí..."
-            />
-            <button onClick={handleEnviar} className="btn-enviar">
-              Enviar
-            </button>
-          </div>
-        )}
-
-        {yaTermine && <p className="instruccion">Esperando a los demás...</p>}
-
-        {esCreador && (
-          <div className="contenedor-boton-iniciar">
-            <button className="btn-enviar iniciar-btn" onClick={iniciarRonda}>
-              Iniciar ronda
-            </button>
-          </div>
-        )}
+    {!yaTermine && (
+      <div className="se-input-container">
+        <input
+          type="text"
+          value={palabra}
+          onChange={(e) => setPalabra(e.target.value)}
+          className="se-input-palabra"
+          placeholder="Escribe tu palabra aquí..."
+        />
+        <button onClick={handleEnviar} className="se-btn-enviar">
+          Enviar
+        </button>
       </div>
-      <div className="codigo-sala-luckiest">{codigoSala}</div>
-      <div className="nombre-jugador">{nombreJugador}</div>
-    </div>
+    )}
+
+    {yaTermine && <p className="se-instruccion">Esperando a los demás...</p>}
+
+    {esCreador && (
+      <div className="se-iniciar-container">
+        <button className="se-iniciar-btn" onClick={iniciarRonda}>
+          Iniciar ronda
+        </button>
+      </div>
+    )}
+  </div>
+
+  <div className="se-codigo">{codigoSala}</div>
+  <div className="se-nombre-jugador">{nombreJugador}</div>
+</div>
+
   );
 };
 

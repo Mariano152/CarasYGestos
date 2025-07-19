@@ -60,29 +60,30 @@ const UnirseSala = () => {
   };
 
   return (
-    <div className="unirse-sala-bg min-h-screen flex flex-col items-center justify-center px-4">
-      <div className="form-container w-full max-w-md space-y-4">
-        <h2 className="title">Unirse a sala</h2>
+<div className="us-bg">
+  <div className="us-form-container">
+    <h2 className="us-title">Unirse a sala</h2>
 
-        <input
-          className="input"
-          placeholder="Tu nombre"
-          value={nombre}
-          onChange={(e) => setNombre(e.target.value)}
-        />
+    <input
+      className="us-input"
+      placeholder="Tu nombre"
+      value={nombre}
+      onChange={(e) => setNombre(e.target.value)}
+    />
 
-        <input
-          className="input"
-          placeholder="Código de la sala"
-          value={codigo}
-          onChange={(e) => setCodigo(e.target.value.toUpperCase())}
-        />
+    <input
+      className="us-input"
+      placeholder="Código de la sala"
+      value={codigo}
+      onChange={(e) => setCodigo(e.target.value.toUpperCase())}
+    />
 
-        <button className="btn" onClick={handleJoin}>
-          Entrar
-        </button>
-      </div>
-    </div>
+    <button className="us-btn" onClick={handleJoin}>
+      Entrar
+    </button>
+  </div>
+</div>
+
   );
 };
 

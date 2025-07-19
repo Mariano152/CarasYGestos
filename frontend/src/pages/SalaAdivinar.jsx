@@ -123,38 +123,36 @@ const SalaAdivinar = () => {
 
   if (!sala) return null;
 
-  return (
-    <div className="sala-jugar-bg" style={{ backgroundImage: `url(${fondo})` }}>
-      <div className="categoria">Categoría: {sala.categoria}</div>
-      <div className="temporizador">{tiempoRestante}s</div>
+return (
+  <div className="sa2-bg" style={{ backgroundImage: `url(${fondo})` }}>
+    <div className="sa2-categoria">Categoría: {sala.categoria}</div>
+    <div className="sa2-temporizador">{tiempoRestante}s</div>
 
-      <div className="input-container">
-        <input
-          type="text"
-          value={inputAdivinar}
-          onChange={(e) => setInputAdivinar(e.target.value)}
-          placeholder="Escribe tu respuesta..."
-          className="input-adivinar"
-        />
-        <button className="btn-adivinar" onClick={handleEnviar}>
-          Enviar
-        </button>
-      </div>
-
-      {resultado && <div className="resultado">{resultado}</div>}
-
-      <div className="nombre-jugador">{nombreJugador}</div>
-      <div className="codigo-sala-luckiest">{salaId}</div>
-
-      <div className="puntajes-equipos">
-        {Object.entries(sala.puntajes || {}).map(([equipo, puntos]) => (
-          <div key={equipo} className="equipo">
-            <strong>{equipo}</strong>: {puntos} puntos
-          </div>
-        ))}
-      </div>
+    <div className="sa2-input-container">
+      <input
+        type="text"
+        value={inputAdivinar}
+        onChange={(e) => setInputAdivinar(e.target.value)}
+        placeholder="Escribe tu respuesta..."
+        className="sa2-input"
+      />
+      <button className="sa2-btn" onClick={handleEnviar}>Enviar</button>
     </div>
-  );
+
+    {resultado && <div className="sa2-resultado">{resultado}</div>}
+    <div className="sa2-jugador">{nombreJugador}</div>
+    <div className="sa2-codigo">{salaId}</div>
+
+    <div className="sa2-puntajes">
+      {Object.entries(sala.puntajes || {}).map(([equipo, puntos]) => (
+        <div key={equipo} className="sa2-equipo">
+          <strong>{equipo}</strong>: {puntos} puntos
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
 };
 
 export default SalaAdivinar;

@@ -20,15 +20,18 @@ const PaginaPrincipal = () => {
         alignItems: 'center'
       }}
     >
-      <h1 className="title">¡ Caras y Gestos!</h1>
-      <div className="botones">
-        <button onClick={() => navigate('/crear-sala')} className="btn">
-          Crear sala
-        </button>
-        <button onClick={() => navigate('/unirse')} className="btn">
-          Unirse a sala
-        </button>
-      </div>
+        <h1 className="pagina-title">¡ Caras y Gestos!</h1>
+
+        <div className="pagina-botones">
+          <button onClick={() => navigate('/crear-sala')} className="pagina-btn">
+            Crear sala
+          </button>
+          <button onClick={() => navigate('/unirse')} className="pagina-btn">
+            Unirse a sala
+          </button>
+        </div>
+
+
     </div>
   );
 };

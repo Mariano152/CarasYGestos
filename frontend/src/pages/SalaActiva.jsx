@@ -109,51 +109,45 @@ const SalaActiva = () => {
   const esCreador = nombreJugador === sala.creador;
 
   return (
-    <div className="sala-activa-bg" style={{ backgroundImage: `url(${fondo})` }}>
-      <div className="sala-activa-contenido">
-        <div className="sala-header">
-          <div className="codigo-sala-luckiest">{codigoSala}</div>
-          <div className="categoria-grande">
-            Categoría: {sala.categoria?.toUpperCase()}
-          </div>
-          <div className="gear">⚙️</div>
-        </div>
-
-        {esCreador && (
-          <div className="btn-iniciar-container">
-            <button onClick={iniciarPartida} className="btn-iniciar">
-              Iniciar partida
-            </button>
-          </div>
-        )}
-
-        <div
-          className="grid gap-6"
-          style={{
-            display: "grid",
-            gridTemplateColumns: `repeat(${equipos.length}, minmax(200px, 1fr))`,
-          }}
-        >
-          {equipos.map((equipo, index) => (
-            <div key={index} className="equipo-box">
-              <button onClick={() => unirseAEquipo(equipo)}>+</button>
-              <h3>{equipo}</h3>
-              <ul>
-                {Object.entries(sala.equipos[equipo] || {}).map(([key, jugador]) => {
-                  if (jugador === true && key === "__placeholder") return null;
-                  return (
-                    <li key={key} className={jugador === sala.creador ? "font-bold text-yellow-300" : ""}>
-                      {jugador} {jugador === sala.creador ? "👑" : ""}
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="nombre-jugador">{nombreJugador}</div>
+   <div className="sa-bg" style={{ backgroundImage: `url(${fondo})` }}>
+  <div className="sa-header">
+    <div className="sa-codigo-luckiest">{codigoSala}</div>
+    <div className="sa-categoria-grande">
+      Categoría: {sala.categoria?.toUpperCase()}
     </div>
+    <div className="sa-gear">⚙️</div>
+  </div>
+
+  {esCreador && (
+    <div className="sa-btn-iniciar-container">
+      <button onClick={iniciarPartida} className="sa-btn-iniciar">
+        Iniciar partida
+      </button>
+    </div>
+  )}
+
+  <div className="sa-grid">
+    {equipos.map((equipo, index) => (
+      <div key={index} className="sa-equipo-box">
+        <button onClick={() => unirseAEquipo(equipo)}>+</button>
+        <h3>{equipo}</h3>
+        <ul>
+          {Object.entries(sala.equipos[equipo] || {}).map(([key, jugador]) => {
+            if (jugador === true && key === "__placeholder") return null;
+            return (
+              <li key={key} className={jugador === sala.creador ? "font-bold" : ""}>
+                {jugador} {jugador === sala.creador ? "👑" : ""}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    ))}
+  </div>
+
+  <div className="sa-nombre-jugador">{nombreJugador}</div>
+</div>
+
   );
 };
 
