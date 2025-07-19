@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+.sala-jugar-bg {
+  background-image: url("../assets/SalaJugar.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  padding: 2rem;
+  position: relative;
+  color: white;
+  font-family: 'Luckiest Guy', cursive;
+}
+
+.categoria {
+  font-size: 2rem;
+  color: yellow;
+  text-shadow: 2px 2px 4px #000;
+  margin-bottom: 1rem;
+}
+
+.temporizador {
+  font-size: 5rem;
+  color: yellow;
+  text-shadow: 2px 2px 4px #000;
+  margin-bottom: 2rem;
+}
+
+.input-container {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-adivinar {
+  padding: 1rem;
+  font-size: 1.5rem;
+  border-radius: 1rem;
+  border: none;
+  width: 300px;
+}
+
+.btn-adivinar {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  border-radius: 1rem;
+  border: none;
+  background-color: yellow;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 2px 2px 4px #000;
+}
+
+.nombre-jugador {
+  position: fixed;
+  bottom: 1rem;
+  right: 2rem;
+  font-size: 2rem;
+  color: white;
+  text-shadow: 2px 2px 4px #000;
+}
+.puntajes-equipos {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px black;
+  text-align: center;
+}
+
+.equipo {
+  margin: 0.3rem 0;
+}
+.resultado {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  color: white;
+  text-shadow: 2px 2px 6px #000;
+  text-align: center;
+}
+.codigo-sala-luckiest {
+  position: absolute;
+  top: 2vh;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Luckiest Guy', cursive;
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: #ffffff;
+  text-shadow: 2px 2px 8px black;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  pointer-events: none;
+}

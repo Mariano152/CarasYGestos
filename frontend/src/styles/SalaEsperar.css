@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Freckle+Face&display=swap');
+
+.sala-esperar-bg {
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  color: white;
+  font-family: 'Luckiest Guy', cursive;
+}
+
+.contenido {
+  text-align: center;
+  z-index: 2;
+}
+
+.mensaje-esperar {
+  font-size: 3rem;
+  text-shadow: 2px 2px 5px black;
+}
+
+.instruccion-esperar {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  text-shadow: 1px 1px 3px black;
+}
+
+.categoria {
+  position: absolute;
+  top: 1rem;
+  left: 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff700;
+  text-shadow: 1px 1px 3px #000;
+  z-index: 2;
+}
+
+.puntajes-equipos {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  text-align: right;
+  font-size: 1.2rem;
+  font-family: 'Luckiest Guy', cursive;
+  z-index: 2;
+}
+
+.puntajes-equipos .equipo {
+  margin-bottom: 0.2rem;
+  text-shadow: 2px 2px 3px black;
+}
+
+.nombre-jugador {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  font-family: 'Freckle Face', cursive;
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  color: white;
+  text-shadow: 2px 2px 4px black;
+  z-index: 1000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: right;
+  max-width: 40vw;
+}
+.temporizador {
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 4rem;
+  color: #ffdd00;
+  text-shadow: 3px 3px 6px #000;
+  margin-top: 2rem;
+  text-align: center;
+}
+.temporizador {
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 4rem;
+  color: #ffdd00;
+  text-shadow: 3px 3px 6px #000;
+  margin-top: 2rem;
+  text-align: center;
+}
+.codigo-sala-luckiest {
+  position: absolute;
+  top: 2vh;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Luckiest Guy', cursive;
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: #ffffff;
+  text-shadow: 2px 2px 8px black;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  pointer-events: none;
+}

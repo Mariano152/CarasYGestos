@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+.sala-jugar-bg {
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  color: white;
+  font-family: 'Luckiest Guy', cursive;
+}
+
+.contenido {
+  text-align: center;
+  margin-top: 10vh;
+  z-index: 2;
+}
+
+.mensaje-actuar {
+  font-size: 3rem;
+  text-shadow: 2px 2px 5px black;
+}
+
+.instruccion-juego {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  text-shadow: 1px 1px 3px black;
+}
+
+.btn-iniciar-turno {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 15px;
+  background-color: #ffcc00;
+  color: black;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 2px 2px 5px #000;
+}
+
+.nombre-jugador {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  font-family: 'Freckle Face', cursive;
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  color: white;
+  text-shadow: 2px 2px 4px black;
+  z-index: 1000;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: right;
+  max-width: 40vw;
+}
+
+/* NUEVO: categoría arriba izquierda */
+.categoria {
+  position: absolute;
+  top: 1rem;
+  left: 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff700;
+  text-shadow: 1px 1px 3px #000;
+  z-index: 2;
+}
+
+/* NUEVO: puntajes arriba derecha */
+.puntajes-equipos {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  text-align: right;
+  font-size: 1.2rem;
+  font-family: 'Luckiest Guy', cursive; /* 👈 Fuerza la fuente caricaturesca */
+  color: white;
+  z-index: 2;
+}
+
+.puntajes-equipos .equipo {
+  margin-bottom: 0.2rem;
+  text-shadow: 2px 2px 3px black;
+}
+.codigo-sala-luckiest {
+  position: absolute;
+  top: 2vh;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Luckiest Guy', cursive;
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: #facc15; /* amarillo tipo Kahoot */
+  text-shadow: 3px 3px 6px #000;
+  z-index: 1000;
+  padding: 0.5rem 1rem;
+  pointer-events: none;
+  animation: rebotar 1s infinite;
+  background: rgba(0, 0, 0, 0.4); /* fondo negro semi-transparente */
+  border-radius: 12px;
+
+}
+
+@keyframes rebotar {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}

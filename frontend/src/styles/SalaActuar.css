@@ -1,0 +1,77 @@
+.sala-actuar-bg {
+  background-image: url("../assets/SalaJugar.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.categoria {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 2rem;
+  color: yellow;
+  text-shadow: 2px 2px 4px #000;
+}
+
+.temporizador {
+  font-size: 5rem;
+  color: yellow;
+  font-family: 'Luckiest Guy', cursive;
+  text-shadow: 2px 2px 4px #000;
+  margin-bottom: 2rem;
+}
+
+
+.palabra-a-actuar {
+  font-size: 6rem;
+  color: white;
+  font-family: 'Luckiest Guy', cursive;
+  text-shadow: 3px 3px 6px #000;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.nombre-jugador {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  font-size: 2rem;
+  font-family: 'Freckle Face', cursive;
+  color: white;
+  text-shadow: 2px 2px 4px #000;
+}
+.puntajes-equipos {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px black;
+  text-align: center;
+}
+
+.equipo {
+  margin: 0.3rem 0;
+}
+.codigo-sala-luckiest {
+  position: absolute;
+  top: 2vh;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Luckiest Guy', cursive;
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: #ffffff;
+  text-shadow: 2px 2px 8px black;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  pointer-events: none;
+}
