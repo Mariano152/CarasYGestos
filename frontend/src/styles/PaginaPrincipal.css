@@ -3,8 +3,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Fredoka&display=swap');
 
 .pagina-principal {
-  background-size: cover;
-  background-position: center;
+  background-size: contain; /* antes estaba cover */
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-attachment: fixed; /* opcional: para que no se mueva al hacer scroll */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -13,6 +15,7 @@
   padding: 1rem;
   position: relative;
 }
+
 
 /* Título estilo caricatura */
 .pagina-title {

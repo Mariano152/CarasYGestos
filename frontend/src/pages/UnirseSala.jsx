@@ -1,9 +1,10 @@
-// src/pages/UnirseSala.jsx
+ // src/pages/UnirseSala.jsx
 import React, { useState } from "react";
 import "../styles/UnirseSala.css";
 import { useNavigate } from "react-router-dom";
 import { ref, get, update } from "firebase/database";
 import database from "../firebase";
+import fondo from "../assets/UnirseSala.jpg"; // Asegúrate que la imagen exista
 
 const UnirseSala = () => {
   const [codigo, setCodigo] = useState("");
@@ -12,7 +13,7 @@ const UnirseSala = () => {
 
   const handleJoin = async () => {
     const codigoMayus = codigo.toUpperCase();
-    if (!codigoMayus || !nombre) {
+    if (!codigoMayus || !nombre.trim()) {
       return alert("Escribe el código de sala y tu nombre");
     }
 
@@ -60,30 +61,43 @@ const UnirseSala = () => {
   };
 
   return (
-<div className="us-bg">
-  <div className="us-form-container">
-    <h2 className="us-title">Unirse a sala</h2>
+    <div
+      className="us-bg"
+      style={{
+        backgroundImage: `url(${fondo})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: "0.1rem",
+      }}
+    >
+      <h1 className="us-title">Unirse a sala</h1>
+      <div className="us-form-container">
+        <label className="us-label">Tu nombre:</label>
+        <input
+          className="us-input"
+          placeholder="Nombre del jugador"
+          value={nombre}
+          onChange={(e) => setNombre(e.target.value)}
+        />
 
-    <input
-      className="us-input"
-      placeholder="Tu nombre"
-      value={nombre}
-      onChange={(e) => setNombre(e.target.value)}
-    />
+        <label className="us-label">Código de sala:</label>
+        <input
+          className="us-input"
+          placeholder="Código"
+          value={codigo}
+          onChange={(e) => setCodigo(e.target.value.toUpperCase())}
+        />
 
-    <input
-      className="us-input"
-      placeholder="Código de la sala"
-      value={codigo}
-      onChange={(e) => setCodigo(e.target.value.toUpperCase())}
-    />
-
-    <button className="us-btn" onClick={handleJoin}>
-      Entrar
-    </button>
-  </div>
-</div>
-
+        <button className="us-btn" onClick={handleJoin}>
+          Entrar
+        </button>
+      </div>
+    </div>
   );
 };
 

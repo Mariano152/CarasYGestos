@@ -16,15 +16,17 @@ body, html {
   padding: 1rem;
   display: flex;
   flex-direction: column;
+  align-items: flex-start; /* Alinea el contenido a la izquierda */
   justify-content: center;
-  align-items: center;
+  position: relative;
+  padding-left: 2rem; /* opcional para separar un poco de la izquierda */
 }
 
 /* Título animado */
 .crear-title {
   position: absolute;
-  top: 8%;
-  left: 50%; /* mueve hacia la derecha */
+  top: 5%; /* puedes ajustar este valor */
+  left: 25%;
   transform: translateX(-50%);
   font-size: clamp(2rem, 6vw, 3rem);
   font-family: 'Luckiest Guy', cursive;
@@ -35,6 +37,7 @@ body, html {
   text-align: center;
   z-index: 10;
 }
+
 
 
 /* Contenedor del formulario */

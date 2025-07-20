@@ -1,54 +1,65 @@
+ /* src/styles/UnirseSala.css */
+
 @import url('https://fonts.googleapis.com/css2?family=Fredoka&family=Luckiest+Guy&display=swap');
 
 body, html {
   margin: 0;
   padding: 0;
+  height: 100%;
   font-family: 'Fredoka', sans-serif;
 }
 
+/* Fondo */
 .us-bg {
   min-height: 100vh;
-  background-image: url('../assets/UnirseSala.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  padding: 1rem;
-  animation: us-zoom 20s ease-in-out infinite alternate;
+  justify-content: center;
+  padding: 1.5rem;
+  position: relative;
 }
 
 /* Título */
-
 .us-title {
   position: absolute;
-  top: -50%; /* ⬅️ ajústalo: 40% es más abajo, 20% es más arriba */
-  left:10%;
+  top: 25%;
+  left: 20%;
   transform: translateX(-50%);
   font-size: clamp(2rem, 6vw, 3rem);
+  font-family: 'Luckiest Guy', cursive;
   font-weight: bold;
   color: #facc15;
-  animation: us-bounce 1s infinite;
-  text-align: center;
   text-shadow: 2px 2px #000;
-  font-family: 'Luckiest Guy', cursive;
+  animation: bounce 1s infinite;
+  text-align: center;
   z-index: 10;
 }
 
-
-
-/* Formulario */
+/* Contenedor del formulario */
 .us-form-container {
-  width: 100%;
-  max-width: 400px;
   background-color: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   border: 3px dashed #38bdf8;
   padding: 2rem 1.5rem;
   border-radius: 2rem;
-  animation: us-fadein 0.8s ease-out;
   box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+  width: 100%;
+  max-width: 400px;
+  animation: fadein 0.8s ease-out;
+}
+
+/* Etiquetas */
+.us-label {
+  color: #000;
+  font-weight: bold;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  margin-top: 1rem;
+  display: block;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
 }
 
 /* Inputs */
@@ -83,17 +94,12 @@ body, html {
 }
 
 /* Animaciones */
-@keyframes us-bounce {
+@keyframes bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-5px); }
 }
 
-@keyframes us-fadein {
+@keyframes fadein {
   from { opacity: 0; transform: scale(0.95); }
   to   { opacity: 1; transform: scale(1); }
-}
-
-@keyframes us-zoom {
-  from { background-size: 100%; }
-  to   { background-size: 110%; }
 }

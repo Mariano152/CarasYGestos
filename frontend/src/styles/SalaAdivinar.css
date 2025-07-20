@@ -18,10 +18,10 @@
 
 .sa2-categoria {
   position: absolute;
-  top: 1rem;
+  top: 6rem;
   left: 1rem;
   font-family: 'Luckiest Guy', cursive;
-  font-size: clamp(1.2rem, 4vw, 2rem);
+  font-size: clamp(2rem, 4vw, 2rem);
   color: #facc15;
   text-shadow: 2px 2px 5px black;
 }
@@ -57,7 +57,18 @@
 .sa2-btn:hover {
   background-color: #22c55e;
 }
-
+.sa2-input-container {
+  position: absolute;
+  top: 52%; /* Debajo del temporizador */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
 .sa2-resultado {
   position: absolute;
   top: 65%; /* ajusta según altura deseada */
@@ -73,40 +84,51 @@
 
 .sa2-jugador {
   position: fixed;
-  bottom: 2vh;
-  right: 2vw;
-  font-size: clamp(1.2rem, 4vw, 3rem);
+  bottom: 1.5rem;
+  right: 1.5rem;
   font-family: 'Freckle Face', cursive;
+  font-size: clamp(2.5rem, 4vw, 3rem);
   color: white;
-  text-shadow: 2px 2px 4px #000;
-  max-width: 80vw;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  text-shadow: 2px 2px 4px black;
   z-index: 1000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: right;
 }
-
 
 
 .sa2-equipo {
   margin: 0.3rem 0;
 }
 
+
 .sa2-codigo {
   position: absolute;
-  top: 2vh;
-  left: 50%;
+  top: 90vh;
+  left: 20%;
   transform: translateX(-50%);
   font-family: 'Luckiest Guy', cursive;
   font-size: clamp(2rem, 5vw, 4rem);
-  color: #ffffff;
-  text-shadow: 2px 2px 8px black;
+  color: #facc15;
+  text-shadow: 3px 3px 6px #000;
   z-index: 1000;
-  background: rgba(0, 0, 0, 0.4);
   padding: 0.5rem 1rem;
-  border-radius: 12px;
   pointer-events: none;
+  animation: sa2-rebotar 1s infinite;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
 }
+
+@keyframes sa2-rebotar {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
 .sa2-temporizador {
   position: absolute;
   top: 40%; /* mueve verticalmente */
@@ -123,20 +145,9 @@
   top: 1rem;
   right: 2rem;
   text-align: right;
-  font-size: clamp(1rem, 3vw, 2.5rem);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
   font-family: 'Luckiest Guy', cursive;
   color: white;
   z-index: 2;
 }
-.sa2-input-container {
-  position: absolute;
-  top: 52%; /* Debajo del temporizador */
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
-  z-index: 2;
-}
+

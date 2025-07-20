@@ -55,7 +55,7 @@
   bottom: 1.5rem;
   right: 1.5rem;
   font-family: 'Freckle Face', cursive;
-  font-size: clamp(1.2rem, 4vw, 3rem);
+  font-size: clamp(2.5rem, 4vw, 3rem);
   color: white;
   text-shadow: 2px 2px 4px black;
   z-index: 1000;
@@ -69,9 +69,9 @@
 /* categoría arriba izquierda */
 .sj-categoria {
   position: absolute;
-  top: 1rem;
-  left: 2rem;
-  font-size: clamp(1rem, 4vw, 1.5rem);
+  top: 6rem;
+  left: 6rem;
+  font-size: clamp(2rem, 4vw, 1.5rem);
   font-weight: bold;
   text-transform: uppercase;
   color: #fff700;
@@ -85,7 +85,7 @@
   top: 1rem;
   right: 2rem;
   text-align: right;
-  font-size: clamp(1rem, 3vw, 2.5rem);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
   font-family: 'Luckiest Guy', cursive;
   color: white;
   z-index: 2;
@@ -99,8 +99,8 @@
 /* código de sala */
 .sj-codigo {
   position: absolute;
-  top: 2vh;
-  left: 50%;
+  top: 90vh;
+  left: 20%;
   transform: translateX(-50%);
   font-family: 'Luckiest Guy', cursive;
   font-size: clamp(2rem, 5vw, 4rem);

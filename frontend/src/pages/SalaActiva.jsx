@@ -108,47 +108,55 @@ const SalaActiva = () => {
   const equipos = Object.keys(sala.equipos || {});
   const esCreador = nombreJugador === sala.creador;
 
-  return (
-   <div className="sa-bg" style={{ backgroundImage: `url(${fondo})` }}>
-  <div className="sa-header">
+return (
+  <div className="sa-bg" style={{ backgroundImage: `url(${fondo})` }}>
+    {/* Código de sala */}
     <div className="sa-codigo-luckiest">{codigoSala}</div>
+
+    {/* Categoría */}
     <div className="sa-categoria-grande">
-      Categoría: {sala.categoria?.toUpperCase()}
+      CATEGORÍA: {sala.categoria?.toUpperCase()}
     </div>
-    <div className="sa-gear">⚙️</div>
-  </div>
 
-  {esCreador && (
-    <div className="sa-btn-iniciar-container">
-      <button onClick={iniciarPartida} className="sa-btn-iniciar">
-        Iniciar partida
-      </button>
+    {/* Ícono de engranaje (puedes moverlo si quieres otro lugar) */}
+    <div className="sa-header">
+      <div className="sa-gear">⚙️</div>
     </div>
-  )}
 
-  <div className="sa-grid">
-    {equipos.map((equipo, index) => (
-      <div key={index} className="sa-equipo-box">
-        <button onClick={() => unirseAEquipo(equipo)}>+</button>
-        <h3>{equipo}</h3>
-        <ul>
-          {Object.entries(sala.equipos[equipo] || {}).map(([key, jugador]) => {
-            if (jugador === true && key === "__placeholder") return null;
-            return (
-              <li key={key} className={jugador === sala.creador ? "font-bold" : ""}>
-                {jugador} {jugador === sala.creador ? "👑" : ""}
-              </li>
-            );
-          })}
-        </ul>
+    {/* Botón para iniciar partida */}
+    {esCreador && (
+      <div className="sa-btn-iniciar-container">
+        <button onClick={iniciarPartida} className="sa-btn-iniciar">
+          Iniciar partida
+        </button>
       </div>
-    ))}
+    )}
+
+    {/* Lista de equipos */}
+    <div className="sa-grid">
+      {equipos.map((equipo, index) => (
+        <div key={index} className="sa-equipo-box">
+          <button onClick={() => unirseAEquipo(equipo)}>+</button>
+          <h3>{equipo}</h3>
+          <ul>
+            {Object.entries(sala.equipos[equipo] || {}).map(([key, jugador]) => {
+              if (jugador === true && key === "__placeholder") return null;
+              return (
+                <li key={key} className={jugador === sala.creador ? "font-bold" : ""}>
+                  {jugador} {jugador === sala.creador ? "👑" : ""}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    {/* Nombre del jugador (parte inferior derecha) */}
+    <div className="sa-nombre-jugador">{nombreJugador}</div>
   </div>
+);
 
-  <div className="sa-nombre-jugador">{nombreJugador}</div>
-</div>
-
-  );
 };
 
 export default SalaActiva;
