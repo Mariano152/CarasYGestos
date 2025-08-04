@@ -11,12 +11,13 @@ const SalaEscribir = () => {
   const nombreJugador = sessionStorage.getItem("nombreJugador");
   const { codigoSala } = useParams();
 
-
   const [sala, setSala] = useState(null);
   const [palabra, setPalabra] = useState("");
   const [respuestasRestantes, setRespuestasRestantes] = useState(0);
   const [esCreador, setEsCreador] = useState(false);
   const [yaTermine, setYaTermine] = useState(false);
+  const [enviando, setEnviando] = useState(false);
+  const [ultimaPalabraEnviada, setUltimaPalabraEnviada] = useState("");
 
   useEffect(() => {
     const salaRef = ref(database, `salas/${salaId}`);
@@ -39,21 +40,31 @@ const SalaEscribir = () => {
   }, [salaId, nombreJugador, yaTermine, respuestasRestantes, navigate]);
 
   const handleEnviar = async () => {
-    if (!palabra.trim()) return;
+    if (enviando || !palabra.trim() || respuestasRestantes <= 0) return;
+    if (palabra.trim().toLowerCase() === ultimaPalabraEnviada.toLowerCase()) return;
 
-    const palabrasRef = ref(database, `salas/${salaId}/palabras`);
-    const nuevaPalabra = {
-      palabra: palabra.trim(),
-      autor: nombreJugador,
-      timestamp: Date.now(),
-    };
-    await push(palabrasRef, nuevaPalabra);
+    setEnviando(true);
 
-    const nuevasRestantes = respuestasRestantes - 1;
-    setRespuestasRestantes(nuevasRestantes);
-    setPalabra("");
+    try {
+      const palabrasRef = ref(database, `salas/${salaId}/palabras`);
+      const nuevaPalabra = {
+        palabra: palabra.trim(),
+        autor: nombreJugador,
+        timestamp: Date.now(),
+      };
+      await push(palabrasRef, nuevaPalabra);
 
-    if (nuevasRestantes <= 0) setYaTermine(true);
+      const nuevasRestantes = respuestasRestantes - 1;
+      setRespuestasRestantes(nuevasRestantes);
+      setUltimaPalabraEnviada(palabra.trim());
+      setPalabra("");
+
+      if (nuevasRestantes <= 0) setYaTermine(true);
+    } catch (error) {
+      console.error("Error al enviar palabra:", error);
+    } finally {
+      setEnviando(false);
+    }
   };
 
   const iniciarRonda = async () => {
@@ -70,7 +81,6 @@ const SalaEscribir = () => {
     const jugadorInicial = Object.values(primerEquipo)[0];
     if (!jugadorInicial) return;
 
-    // Copiar palabras a palabrasPorActuar
     const palabrasRef = ref(database, `salas/${salaId}/palabras`);
     const palabrasSnap = await get(palabrasRef);
     const palabras = palabrasSnap.val();
@@ -96,41 +106,44 @@ const SalaEscribir = () => {
 
   return (
     <div className="se-bg" style={{ backgroundImage: `url(${fondo})` }}>
-  <div className="se-contenido">
-    <h1 className="se-instruccion">
-      Escribe {respuestasRestantes} {sala.categoria}
-    </h1>
+      <div className="se-contenido">
+        <h1 className="se-instruccion">
+          Escribe {respuestasRestantes} {sala.categoria}
+        </h1>
 
-    {!yaTermine && (
-      <div className="se-input-container">
-        <input
-          type="text"
-          value={palabra}
-          onChange={(e) => setPalabra(e.target.value)}
-          className="se-input-palabra"
-          placeholder="Escribe tu palabra aquí..."
-        />
-        <button onClick={handleEnviar} className="se-btn-enviar">
-          Enviar
-        </button>
+        {!yaTermine && (
+          <div className="se-input-container">
+            <input
+              type="text"
+              value={palabra}
+              onChange={(e) => setPalabra(e.target.value)}
+              className="se-input-palabra"
+              placeholder="Escribe tu palabra aquí..."
+            />
+            <button
+              onClick={handleEnviar}
+              className="se-btn-enviar"
+              disabled={enviando}
+            >
+              {enviando ? "Enviando..." : "Enviar"}
+            </button>
+          </div>
+        )}
+
+        {yaTermine && <p className="se-instruccion">Esperando a los demás...</p>}
+
+        {esCreador && (
+          <div className="se-iniciar-container">
+            <button className="se-iniciar-btn" onClick={iniciarRonda}>
+              Iniciar ronda
+            </button>
+          </div>
+        )}
       </div>
-    )}
 
-    {yaTermine && <p className="se-instruccion">Esperando a los demás...</p>}
-
-    {esCreador && (
-      <div className="se-iniciar-container">
-        <button className="se-iniciar-btn" onClick={iniciarRonda}>
-          Iniciar ronda
-        </button>
-      </div>
-    )}
-  </div>
-
-  <div className="se-codigo">{codigoSala}</div>
-  <div className="se-nombre-jugador">{nombreJugador}</div>
-</div>
-
+      <div className="se-codigo">{codigoSala}</div>
+      <div className="se-nombre-jugador">{nombreJugador}</div>
+    </div>
   );
 };
 
